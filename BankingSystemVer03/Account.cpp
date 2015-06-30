@@ -25,6 +25,12 @@ Account::Account(char *name_in, int ID_in, int balance_in)
 	balance = balance_in;
 }
 
+Account::Account(const Account& copy)
+	:accountID(copy.accountID), balance(copy.balance)
+{
+	cusName = new char[strlen(copy.cusName) + 1];
+	strcpy(cusName, copy.cusName);
+}
 
 
 char* Account::GetName() const
